@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 12px;   /* 按需改成 16px/20px */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.2em;
+ padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f4a261;  /* 使用鲜艳的背景颜色 */
+  transition: background-color 0.3s, transform 0.3s; /* 添加平滑过渡效果 */
+}
+nav a:hover {
+  background-color: #e76f51;  /* 鼠标悬停时改变背景颜色 */
+  transform: scale(1.1);  /* 鼠标悬停时轻微放大按钮 */
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* 主页内容左右分栏 */
+.home-content {
+  display: flex;
+  gap: 20px; /* 调整左右两栏的间距 */
+  padding: 20px;
+}
+
+.left, .right {
+  flex: 1; /* 两栏宽度相等 */
+}
+
+.left {
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.right {
+  background-color: #d4d4d4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* 默认隐藏所有 content-section */
+.content-section {
+  display: none;
+}
+
+
+h1 {
+  font-size: 2.5em; /* 设置姓名的字体大小 */
+  margin: 0;
+}
+
+.usual {
+  font-size: 1.2em; /* 设置部门的字体大小 */
+  margin: 10px 0;
+}
+
+.links a {
+  color: #f4a261;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.content-section {
+  padding: 20px;               /* 分区通用内边距（Home/Research 都受益） */
+}
+
+#research h3 {
+  margin-top: 16px;            /* 小标题与上一段落的间距 */
+}
+
+#research p,
+#research li {
+  line-height: 1.6;            /* 更舒服的行距 */
+}
