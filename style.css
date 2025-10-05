@@ -6,6 +6,17 @@ body {
   padding: 0;
 }
 
+/* 新增：主内容容器样式 */
+.container {
+  max-width: 1024px; /* 设置内容的最大宽度，可根据喜好调整 */
+  margin: 0 auto; /* 关键样式：让容器水平居中 */
+  background-color: white; /* 给容器一个白色背景，使其与灰色背景区分开 */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 可选：增加一点阴影，更有立体感 */
+  min-height: 100vh; /* 确保容器至少和浏览器窗口一样高 */
+  display: flex; /* 启用 Flexbox 布局 */
+  flex-direction: column; /* 设置主轴方向为垂直方向 */
+}
+
 header {
   background-color: #333;
   color: white;
@@ -33,15 +44,20 @@ nav a:hover {
   transform: scale(1.1);  /* 鼠标悬停时轻微放大按钮 */
 }
 
+/* 新增：为主内容区域增加底部空间，防止与页脚太近 */
+main {
+  /* flex: 1; */ /* 替换掉之前的 padding-bottom */
+  flex: 1 0 auto; /* 更兼容的写法 */
+}
 
 footer {
   background-color: #333;
   color: white;
   text-align: center;
   padding: 10px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  /* position: fixed; */  /* 删除此行 */
+  /* width: 100%; */      /* 删除此行 */
+  /* bottom: 0; */        /* 删除此行 */
 }
 
 /* 主页内容左右分栏 */
