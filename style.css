@@ -121,3 +121,49 @@ h1 {
 #research li {
   line-height: 1.6;            /* 更舒服的行距 */
 }
+
+@media (max-width: 768px) {
+
+  /* 1. 解决布局问题：让左右两栏垂直堆叠 */
+  .home-content {
+    flex-direction: column;
+    gap: 10px; /* 垂直堆叠时，间距可以小一点 */
+  }
+
+  /* 2. 调整字体大小，让内容在手机上更合适 */
+
+  /* 缩小页面主标题 */
+  header h1 {
+    font-size: 1.6em; /* 电脑上是 2em */
+  }
+
+  /* 缩小导航按钮 */
+  nav a {
+    font-size: 1em; /* 电脑上是 1.2em */
+    margin: 5px;
+    padding: 5px 8px;
+  }
+
+  /* 缩小 Home 页左侧你的名字 */
+  .home-content .left h1 {
+    font-size: 2em; /* 电脑上是 2.5em */
+  }
+  
+  /* 缩小 Home 页左侧的联系信息 */
+  .home-content .left .usual {
+    font-size: 1em; /* 电脑上是 1.2em */
+  }
+
+  /* 确保正文文字大小合适且行距舒适 */
+  .home-content .right p,
+  #research p,
+  #research li {
+     font-size: 1rem; /* 1rem 通常等于 16px，是阅读的黄金尺寸 */
+     line-height: 1.6; /* 保证行距 */
+  }
+  
+  /* (可选) 缩小分区的内边距，让内容区域更宽 */
+  .content-section, .home-content {
+    padding: 15px; /* 电脑上是 20px */
+  }
+}
