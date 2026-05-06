@@ -1,72 +1,160 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mingcheng Lu's Research Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Mingcheng Lu – Undergraduate researcher at Fudan University focusing on machine learning theory.">
+  <title>Mingcheng Lu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
 
   <header>
-    <h1>Mingcheng Lu's Research Page</h1>
-    <nav>
-      <a href="#home" id="home-link">Home</a>
-      <a href="#research" id="research-link">Research</a>
-    </nav>
-  </header>
-  <main>
-  <section id="home" class="content-section">
-    <h2>Home</h2>
-    <div class="home-content">
-      <!-- 左侧部分 -->
-      <div class="left">
-	<h1>Mingcheng Lu </h1>
-    <p class="usual">School of Mathematical Sciences<br>Fudan University</p>
-    <p class="usual">23307110114 \at m.fudan.edu.cn</p>
-    <p class="links">
-      <a href="https://www.linkedin.com/in/%E9%93%AD%E7%A8%8B-%E9%B2%81-71b910363/?locale=en_US" target="_blank">LinkedIn</a></p>
-      </div>
-      <!-- 右侧部分 -->
-      <div class="right">
-        <p>I am an undergraduate student at the School of Mathematical Sciences, Fudan University. My research focuses on the theoretical foundations of machine learning. My long-term goal is to develop efficient and interpretable AI systems. Recently, I mainly study the statistical rates of flow matching models.</p>
-      </div>
+    <div class="header-inner">
+      <span class="site-name">Mingcheng Lu</span>
+      <nav>
+        <a href="#home" class="nav-link active" data-target="home">Home</a>
+        <a href="#research" class="nav-link" data-target="research">Research</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-<section id="research" class="content-section">
-  <h2>Research</h2>
+  <main>
 
-  <p>
-     My work focuses on the theoretical foundations of machine learning, especially for generative models and large-scale systems. Currently, I'm mentored by <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/liu-han.html" target="_blank" rel="noopener noreferrer"> Han Liu</a>.
-  </p>
+    <!-- ═══════════════  HOME  ═══════════════ -->
+    <section id="home" class="content-section">
+      <div class="home-grid">
 
-  <h3>Research Interest</h3>
-  <p>
-    My research interests lie in machine learning theory, with a focus on the foundations of large language models and generative AI.
-  </p>
+        <div class="profile-card">
+          <h1 class="full-name">Mingcheng Lu</h1>
+          <div class="divider"></div>
+          <p class="affil">School of Mathematical Sciences<br>Fudan University</p>
+          <p class="email">23307110114 <span class="at">at</span> m.fudan.edu.cn</p>
+          <div class="profile-links">
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=XPimQrkAAAAJ"
+               target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+          </div>
+        </div>
 
-  <h3>Research Experience and Ongoing Projects</h3>
-  <ul>
-    <li><strong><a href="https://arxiv.org/abs/2509.22623" target="_blank" rel="noopener noreferrer"> A Theoretical Analysis of Discrete Flow Matching Generative Models</a></strong>.  
-      We provide a theoretical analysis for end-to-end training Discrete Flow Matching (DFM) generative models. Specifically, we develop the technique of discrete-to-continuous functional extension and bounding discrete distribution estimation error with velocity estimation error.
-    </li>
-    <li><strong>Learning Low-Dimensional Manifold Data with Flow-Matching Transformers</strong>. 
-      We study the statistical rates and minimax optimal estimation  when  data lie on a low-dimensional manifold, examining how latent dimension and smoothness of velocity function influence the rates. 
-    </li>
- 
-  </ul>
+        <div class="bio-card">
+          <h2 class="card-heading">About</h2>
+          <p>
+            I am an undergraduate student in the School of Mathematical Sciences at Fudan University.
+            My research centers on the theoretical foundations of machine learning, with a particular
+            emphasis on generative models and large-scale systems. I am broadly interested in developing
+            rigorous mathematical frameworks that bring clarity to modern AI methods.
+          </p>
+          <p>
+            My long-term aim is to contribute to AI systems that are both principled and practical —
+            grounded in theory yet useful in the real world.
+          </p>
+        </div>
 
-  <h3>Future Research Plan</h3>
-  <p>
-    Given my research experience so far, I plan to further explore machine learning theory in LLMs and GenAI, while seeking opportunities to bridge theory and practice.
-  </p>
-</section>
+      </div>
+    </section>
+
+    <!-- ═══════════════  RESEARCH  ═══════════════ -->
+    <section id="research" class="content-section hidden">
+      <div class="research-inner">
+
+        <p class="research-intro">
+          My work focuses on the theoretical foundations of machine learning, with an emphasis on
+          generative models and large-scale systems. I am currently mentored by
+          <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/liu-han.html"
+             target="_blank" rel="noopener noreferrer">Prof. Han Liu</a>
+          (Northwestern University).
+        </p>
+
+        <h3>Research Interests</h3>
+        <p>
+          I work in machine learning theory, concentrating on the mathematical foundations of
+          large language models and generative AI. My recent work spans distribution estimation,
+          approximation theory for transformers, and flow-based generative models.
+        </p>
+
+        <h3>Papers &amp; Projects</h3>
+
+        <ul class="paper-list">
+
+          <li class="paper-item">
+            <div class="paper-meta">
+              <a href="https://arxiv.org/abs/2509.22623" target="_blank" rel="noopener noreferrer"
+                 class="paper-title">
+                A Theoretical Analysis of Discrete Flow Matching Generative Models
+              </a>
+            </div>
+            <p class="paper-desc">
+              We provide the first end-to-end theoretical analysis of Discrete Flow Matching (DFM)
+              generative models. Key contributions include a discrete-to-continuous functional
+              extension technique and a method for bounding discrete distribution estimation error
+              via velocity estimation error.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <div class="paper-meta">
+              <a href="https://arxiv.org/abs/2604.24878" target="_blank" rel="noopener noreferrer"
+                 class="paper-title">
+                Transformer Approximations from ReLUs
+              </a>
+            </div>
+            <p class="paper-desc">
+              We develop a systematic recipe for translating ReLU approximation results to the
+              softmax attention mechanism. The framework covers a wide range of approximation
+              targets and yields target-specific, economical resource bounds — going beyond
+              generic universal approximation statements.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <div class="paper-meta">
+              <span class="paper-title">
+                Learning Low-Dimensional Manifold Data with Flow-Matching Transformers
+              </span>
+              <span class="paper-badge">ICML 2026</span>
+            </div>
+            <p class="paper-desc">
+              We establish statistical estimation rates for flow matching models when data lie on
+              a low-dimensional manifold, characterizing how the latent dimension and the smoothness
+              of the velocity function jointly govern the rates.
+            </p>
+          </li>
+
+          <li class="paper-item">
+            <div class="paper-meta">
+              <a href="https://arxiv.org/abs/2604.06491" target="_blank" rel="noopener noreferrer"
+                 class="paper-title">
+                Discrete Flow Matching Policy Optimization
+              </a>
+            </div>
+            <p class="paper-desc">
+              We introduce DoMinO (Discrete flow Matching policy Optimization), a unified framework
+              for reinforcement learning fine-tuning of DFM models under a broad class of policy
+              gradient methods. I am responsible for the theoretical analysis of the paper.
+            </p>
+          </li>
+
+        </ul>
+
+        <h3>Future Directions</h3>
+        <p>
+          Building on my current work, I plan to deepen my investigation of machine learning
+          theory as it applies to large language models and generative AI, while actively seeking
+          opportunities to connect theoretical insights with empirical practice.
+        </p>
+
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2025 Mingcheng Lu</p>
+    <div class="footer-inner">
+      <span>&copy; 2026 Mingcheng Lu &nbsp;·&nbsp; Fudan University</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>

@@ -1,169 +1,413 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+/* ─────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+───────────────────────────────────────── */
+:root {
+  --bg:          #f7f6f3;
+  --surface:     #ffffff;
+  --border:      #e2e0db;
+  --text:        #2a2a2a;
+  --text-muted:  #6b6760;
+  --accent:      #4a6b5e;       /* muted sage-teal: scholarly, calm */
+  --accent-dim:  #3d5a4f;
+  --card-left:   #f0eeea;
+  --card-right:  #f7f6f3;
+  --font-serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+  --radius:      6px;
+  --shadow:      0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+  --max-w:       960px;
+  --transition:  .2s ease;
+}
+
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* 新增：主内容容器样式 */
-.container {
-  max-width: 1024px; /* 设置内容的最大宽度，可根据喜好调整 */
-  margin: 0 auto; /* 关键样式：让容器水平居中 */
-  background-color: white; /* 给容器一个白色背景，使其与灰色背景区分开 */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 可选：增加一点阴影，更有立体感 */
-  min-height: 100vh; /* 确保容器至少和浏览器窗口一样高 */
-  display: flex; /* 启用 Flexbox 布局 */
-  flex-direction: column; /* 设置主轴方向为垂直方向 */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2em;
-  margin-bottom: 12px;   /* 按需改成 16px/20px */
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 10px;
-  font-size: 1.2em;
- padding: 5px 10px;
-  border-radius: 5px;
-  background-color: #f4a261;  /* 使用鲜艳的背景颜色 */
-  transition: background-color 0.3s, transform 0.3s; /* 添加平滑过渡效果 */
-}
-nav a:hover {
-  background-color: #e76f51;  /* 鼠标悬停时改变背景颜色 */
-  transform: scale(1.1);  /* 鼠标悬停时轻微放大按钮 */
-}
-
-/* 新增：为主内容区域增加底部空间，防止与页脚太近 */
-main {
-  /* flex: 1; */ /* 替换掉之前的 padding-bottom */
-  flex: 1 0 auto; /* 更兼容的写法 */
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  /* position: fixed; */  /* 删除此行 */
-  /* width: 100%; */      /* 删除此行 */
-  /* bottom: 0; */        /* 删除此行 */
-}
-
-/* 主页内容左右分栏 */
-.home-content {
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  min-height: 100vh;
   display: flex;
-  gap: 20px; /* 调整左右两栏的间距 */
-  padding: 20px;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.left, .right {
-  flex: 1; /* 两栏宽度相等 */
-}
-
-.left {
-  background-color: #e0e0e0;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.right {
-  background-color: #d4d4d4;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-/* 默认隐藏所有 content-section */
-.content-section {
-  display: none;
-}
-
-
-h1 {
-  font-size: 2.5em; /* 设置姓名的字体大小 */
-  margin: 0;
-}
-
-.usual {
-  font-size: 1.2em; /* 设置部门的字体大小 */
-  margin: 10px 0;
-}
-
-.links a {
-  color: #f4a261;
+a {
+  color: var(--accent);
   text-decoration: none;
-  font-weight: bold;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+a:hover {
+  color: var(--accent-dim);
+  border-bottom-color: var(--accent-dim);
 }
 
-.links a:hover {
-  text-decoration: underline;
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  /* Subtle shadow on scroll added via JS */
 }
 
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: none;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: background-color var(--transition), color var(--transition);
+}
+.nav-link:hover {
+  background-color: var(--card-left);
+  color: var(--text);
+  border-bottom-color: transparent;
+}
+.nav-link.active {
+  color: var(--accent);
+  background-color: #edf2f0;
+}
+
+/* ─────────────────────────────────────────
+   MAIN
+───────────────────────────────────────── */
+main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   SECTIONS
+───────────────────────────────────────── */
 .content-section {
-  padding: 20px;               /* 分区通用内边距（Home/Research 都受益） */
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  animation: fadeIn .3s ease both;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ─────────────────────────────────────────
+   HOME — TWO-COLUMN GRID
+───────────────────────────────────────── */
+.home-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Profile card (left) */
+.profile-card {
+  background-color: var(--card-left);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+
+.full-name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+
+.divider {
+  width: 36px;
+  height: 2px;
+  background-color: var(--accent);
+  margin: 16px 0;
+  border-radius: 1px;
+}
+
+.affil {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  word-break: break-all;
+  margin-bottom: 20px;
+}
+
+.email .at {
+  display: inline-block;
+  padding: 0 2px;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.profile-links a {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/* Bio card (right) */
+.bio-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 32px;
+}
+
+.card-heading {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: .01em;
+}
+
+.bio-card p + p {
+  margin-top: 14px;
+}
+
+/* ─────────────────────────────────────────
+   RESEARCH SECTION
+───────────────────────────────────────── */
+.research-inner {
+  max-width: 720px;
+}
+
+.research-intro {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 #research h3 {
-  margin-top: 16px;            /* 小标题与上一段落的间距 */
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 36px;
+  margin-bottom: 12px;
+  letter-spacing: .01em;
 }
 
-#research p,
-#research li {
-  line-height: 1.6;            /* 更舒服的行距 */
+#research p {
+  font-size: 0.9625rem;
+  color: var(--text);
+  line-height: 1.7;
 }
 
+/* Paper list */
+.paper-list {
+  list-style: none;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.paper-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.paper-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.paper-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.paper-title {
+  font-family: var(--font-serif);
+  font-size: 1.075rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.35;
+  border-bottom: none;
+  /* When it's a link */
+}
+
+a.paper-title:hover {
+  color: var(--accent);
+  border-bottom: none;
+}
+
+.paper-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background-color: #edf2f0;
+  border: 1px solid #cdddd8;
+  border-radius: 3px;
+  padding: 1px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.paper-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer {
+  flex-shrink: 0;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 18px 24px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — TABLET  (≤ 768px)
+───────────────────────────────────────── */
 @media (max-width: 768px) {
-
-  /* 1. 解决布局问题：让左右两栏垂直堆叠 */
-  .home-content {
-    flex-direction: column;
-    gap: 10px; /* 垂直堆叠时，间距可以小一点 */
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  /* 2. 调整字体大小，让内容在手机上更合适 */
-
-  /* 缩小页面主标题 */
-  header h1 {
-    font-size: 1.6em; /* 电脑上是 2em */
+  .profile-card,
+  .bio-card {
+    padding: 24px 20px;
   }
 
-  /* 缩小导航按钮 */
-  nav a {
-    font-size: 1em; /* 电脑上是 1.2em */
-    margin: 5px;
-    padding: 5px 8px;
+  .content-section {
+    padding: 32px 16px 48px;
   }
 
-  /* 缩小 Home 页左侧你的名字 */
-  .home-content .left h1 {
-    font-size: 2em; /* 电脑上是 2.5em */
-  }
-  
-  /* 缩小 Home 页左侧的联系信息 */
-  .home-content .left .usual {
-    font-size: 1em; /* 电脑上是 1.2em */
+  .header-inner {
+    padding: 0 16px;
   }
 
-  /* 确保正文文字大小合适且行距舒适 */
-  .home-content .right p,
-  #research p,
-  #research li {
-     font-size: 1rem; /* 1rem 通常等于 16px，是阅读的黄金尺寸 */
-     line-height: 1.6; /* 保证行距 */
+  .site-name {
+    font-size: 1.1rem;
   }
-  
-  /* (可选) 缩小分区的内边距，让内容区域更宽 */
-  .content-section, .home-content {
-    padding: 15px; /* 电脑上是 20px */
+
+  .full-name {
+    font-size: 1.75rem;
+  }
+
+  .research-inner {
+    max-width: 100%;
+  }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — MOBILE  (≤ 480px)
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .site-name {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 5px 9px;
+  }
+
+  .header-inner {
+    height: 50px;
+  }
+
+  .full-name {
+    font-size: 1.6rem;
+  }
+
+  .card-heading {
+    font-size: 1.2rem;
+  }
+
+  .paper-title {
+    font-size: 1rem;
   }
 }
