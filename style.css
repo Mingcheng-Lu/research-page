@@ -32,11 +32,11 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 body {
   font-family: var(--font-sans);
-  font-size: 16px;
   line-height: 1.7;
   color: var(--text);
   background-color: var(--bg);
@@ -253,9 +253,11 @@ main {
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--text);
-  margin-top: 36px;
-  margin-bottom: 12px;
+  margin-top: 56px;
+  margin-bottom: 16px;
   letter-spacing: .01em;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
 }
 
 #research p {
@@ -267,19 +269,19 @@ main {
 /* Paper list */
 .paper-list {
   list-style: none;
-  margin-top: 4px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
 .paper-item {
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+  border-bottom: 1px solid #c8c5be;
 }
 
 .paper-item:first-child {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #c8c5be;
 }
 
 .paper-meta {
@@ -383,7 +385,6 @@ footer {
 ───────────────────────────────────────── */
 @media (max-width: 480px) {
   body {
-    font-size: 15px;
   }
 
   .site-name {
